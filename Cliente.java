@@ -1,5 +1,4 @@
 import java.util.List;
-import java.util.jar.Attributes.Name;
 
 public class Cliente {
 
@@ -40,11 +39,13 @@ public class Cliente {
     public String imprimir() {
         String resp = "";
 
-        resp += "Cliente: " + nome + "\nTelefone: " + telefone + "\nCompras: ";
+        resp += "\nCliente: " + nome + "\nTelefone: " + telefone + "\nCompras: ";
         for (int f = 0; f < compras.size(); f++) {
+
             resp += "\n--Data: " + compras.get(f).getData();
             for (int i = 0; i < compras.get(f).getItem().size(); i++) {
-                resp += "\n----Produto: " + compras.get(f).getItem().get(i).getProduto().getNome();
+                resp += "\n----Produto: " + compras.get(f).getItem().get(i).getQuantidade() + "X "
+                        + compras.get(f).getItem().get(i).getProduto().getNome();
                 resp += "\n----Preço: " + compras.get(f).getItem().get(i).getProduto().getPreco();
             }
             resp += "\nTotal da Compra: " + compras.get(f).obterValorTotal();
